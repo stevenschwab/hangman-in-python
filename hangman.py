@@ -197,22 +197,17 @@ def match_with_gaps(my_word, other_word):
         False otherwise: 
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    stripped_word = my_word.replace("_ ", "_")
-    len_of_stripped_word = len(stripped_word)
-    
-    is_possible_word = True
-    if len_of_stripped_word == len(other_word):
-        # continue with checking letters
-        for index, char in enumerate(stripped_word):
-            # char has yet to be guessed
-            other_word_char = other_word[index]
-            if (char == "_" and other_word_char in my_word) or (char != "_" and char != other_word_char):
-                is_possible_word = False
-                break
-    else:
-        is_possible_word = False
+    stripped_word = my_word.replace(" ", "")    
+    if len(stripped_word) != len(other_word):
+        return False
+    for index, char in enumerate(stripped_word):
+        other_word_char = other_word[index]
+        if char == "_" and other_word_char in stripped_word:
+            return False
+        if char != "_" and char != other_word_char:
+            return False
         
-    return is_possible_word
+    return True
 
 def show_possible_matches(my_word):
     '''
