@@ -170,7 +170,7 @@ def hangman(secret_word):
         print(end_of_guess_separation)
     
     if guesses_remaining == 0:
-        print("You lost. The word was:", secret_word)
+        print("Sorry, you ran out of guesses. The word was:", secret_word)
     else:
         unique_letters = set()
         for char in secret_word:
@@ -181,8 +181,7 @@ def hangman(secret_word):
         print("Congratulations, you won!")
         print("Your total score for this game is:", total_score)
 
-
-hangman('tact')
+hangman('else')
 # When you've completed your hangman function, scroll down to the bottom
 # of the file and uncomment the first two lines to test
 #(hint: you might want to pick your own
